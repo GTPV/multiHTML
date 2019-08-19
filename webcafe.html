@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>웹카페 - HTML5, CSS3</title>
+  <link rel="stylesheet" href="./css/webcafe.css">
+</head>
+<body>
+  
+  <div class="container">
+
+    <header class="header">헤더</header> <!--header.header-->
+  
+  
+    <div class="visual">비주얼</div> <!--div.visual{비주얼} :안에 텍스트까지 넣어줌-->
+  
+  
+    <main class="main clearfix">
+      <div class="group group1">그룹1</div>   <!--클래스 이름 쓸 때 공백 넣어주면 두 이름으로 모두 레퍼런싱이 가능하다. 즉 group으로 부르면 세개가 다 참조됨, group2로 부르면 2번째만 참조됨.-->
+      
+      <div class="group group2">그룹2</div>
+      
+      <div class="group group3">그룹3</div>   <!--div.group.group$*3{그룹$}-->
+    </main>
+  
+  
+    <article class="slogan">슬로건</article>  <!--main.main+article.slogan : 더하기로 이어진 것은 형제 노드-->
+  
+  
+    <div class="footer-bg">
+      <footer class="footer">푸터</footer>      <!--div.footer-bg>footer.footer : 부등호 오른쪽이 왼쪽의 자식 노드-->
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+@charset "utf-8"; /*인코딩은 html과 css를 항상 같게*/
+/*공통 스타일*/
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+body{
+  margin: 0;
+}
+/* 레이아웃 */
+.container{
+  /*display: flex;
+  flex-direction: row;  direction방향(default=row)이 메인축이되고 그와 수직인 축이 교차축이 된다. 메인축정렬 justify content 교차축정렬 align items 
+  flex-wrap: wrap; 줄바꿈 허용(row에서 옆으로 가는걸 줄을 바꿔주기 위함)
+  justify-content: center;*/
+  background: slateblue;
+  
+}
+.header, .visual, .main, .slogan, .footer{/*한번에 여러개 클래스의 속성을 같게 설정하기 편함*/
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header{
+  background: yellow;
+  height: 10vh;
+}
+.visual{
+  background: grey;
+  height: 10vh;
+}
+.main{
+  background: orangered;
+  min-height: 400px;
+  /* height: 60vh; */
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 15px;
+}
+
+.group{
+  margin: 15px;
+  float: left;
+}
+
+.group1{
+  background: pink;
+  width: 250px;
+}
+.group2{
+  background: skyblue;
+  /* clear: both; */
+  width: 380px;
+  /* order:-1; */
+}
+.group3{
+  background: lime;
+  width: 190px;
+}
+.slogan{
+  background: purple;
+  height: 10vh;
+}
+.footer-bg{
+  background: silver;
+  /* flex-basis: 100%;
+  display: flex;
+  justify-content: center; */
+}
+.footer{
+  background: yellow;
+  height: 10vh;
+}
