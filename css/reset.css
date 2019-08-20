@@ -101,6 +101,7 @@ button {
 
 /* HTML5 display-role reset for older browsers */
 
+main,
 article,
 aside,
 details,
@@ -113,13 +114,13 @@ menu,
 nav,
 section {
   display: block;
-}
+}  /*익스플로러에서는 모르는 명령어가 나오면 in-line요소로 해석하므로 block요소들은 따로 block으로 설정해주어야 원하던 렌더링 결과가 나온다.*/
 
 ul {
-  list-style: none;
+  list-style: none; /*원래 ol도 있는 경우가 있지만 ol은 순서가 중요하므로 ul만 리스트 스타일을 none으로 설정한다.*/
 }
 
 table {
-  border-collapse: collapse;
+  border-collapse: collapse; /*테이블의 셀끼리 맞닿는 부분의 border가 겹쳐지게 해서 최외곽 보더와 굵기를 같게 설정한다.(원래는 안쪽 보더들이 최외곽 보더의 두배의 굵기가 된다.*/
   border-spacing: 0;
 }

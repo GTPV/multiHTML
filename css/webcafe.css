@@ -1,6 +1,32 @@
 @charset "utf-8"; /*인코딩은 html과 css를 항상 같게*/
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");  /*웹폰트 선언*/
+@import url("./normalize.css");
+@import url("./reset.css");     /*나중에 선언된 것을 사용한다. (앞에서 line-height를 1로 만든 후 뒤에서 다시 1.5로 만들면 최종적으로 1.5를 사용한다.)*/
+/*숨김 콘텐츠*/
+.a11y-hidden{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(0, 0); /*     clip: rect(0, 0, 0, 0);   ==    clip-path: inset(0, 0);   */
+}
+/*링크 스타일*/
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover, a:focus{
+  color: #ff0000;
+}
+
+
+
 /*공통 스타일*/
 *, *::before, *::after{
+  font-family: 'Spoqa Han Sans', 'Sans-serif';  /*별표 선택자로 모든 요소에 동일한 폰트적용*/
   box-sizing: border-box;
 }
 .clearfix::after{
@@ -8,30 +34,87 @@
   display: block;
   clear: both;
 }
+html{
+  font-size: 10px;
+}
 body{
   margin: 0;
+  font-weight: 400;
+  color: #181818;
+  font-size: 1.4rem;
 }
+
+
+
 /* 레이아웃 */
 .container{
   /*display: flex;
   flex-direction: row;  direction방향(default=row)이 메인축이되고 그와 수직인 축이 교차축이 된다. 메인축정렬 justify content 교차축정렬 align items 
   flex-wrap: wrap; 줄바꿈 허용(row에서 옆으로 가는걸 줄을 바꿔주기 위함)
   justify-content: center;*/
-  background: slateblue;
-  
+  background: url("./images/bg_flower.png") no-repeat 50% 0, linear-gradient(to bottom, #666 0%, #aaa 50%, #ddd 70%, #fff 100%) ;
+    
 }
-.header, .visual, .main, .slogan, .footer{/*한번에 여러개 클래스의 속성을 같게 설정하기 편함*/
+.header, .visual, .main, .slogan, .footer{/*한번에 여러개 클래스의 속성을 같게 설정하기 편함-지금은 각 클래스들의 가로 길이를 같게 하고 가운데 정렬을 시키기 위해 사용됨*/
   width: 940px;
   margin-left: auto;
   margin-right: auto;
 }
+/*헤더*/
 .header{
-  background: yellow;
-  height: 10vh;
+  background: #fff; 
+  position: relative;
+  padding: 0px 30px;
+  border-radius: 0 0 15px 15px;
+
 }
+/*로고*/
+.logo{
+  position: absolute;  /*absolute는 static이 아닌 가장 가까운 상위 요소를 기준으로 한다. 다 static이면 결국 body기준으로 배치된다.*/
+  top: 50px;
+  left: 65px;
+}
+.member{
+  padding: 2px 0;
+  text-align: right;
+  font-size: 0;
+}
+
+
+.member li, .member a{
+  display: inline-block;
+}
+
+
+.member li{
+  font-size: 1.4rem;
+}
+
+.bar::before{
+  content: ":";
+}
+
+.member a{
+  padding:10px 8px;
+  text-transform: uppercase;
+}
+
+.navigation{
+  padding-bottom: 50px;
+}
+
+.menu{
+  /* background-color: orange;
+  background-image: linear-gradient(to bottom, red, purple); background-color 위에 색칠하기 때문에 orange 안보임 오류로 인해 배경이미지 로드 불가 시에는 background-color가 보인다. */
+  background: #e2772b linear-gradient(to bottom, #fccd32 0%,#e2772b 30%,#e2772b 70%,#fccd32 100%);
+  height: 47px;
+  box-shadow: 0 -2px 0px 0px black;
+  /* border-top: 2px solid black; */
+  border-radius: 0 0 5px 5px;
+}
+
 .visual{
-  background: grey;
-  height: 10vh;
+  height: 120px;
 }
 .main{
   background: orangered;
