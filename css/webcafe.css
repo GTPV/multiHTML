@@ -1,9 +1,13 @@
 @charset "utf-8"; /*인코딩은 html과 css를 항상 같게*/
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");  /*웹폰트 선언*/
+@import url("./fonts.css");
 @import url("./normalize.css");
 @import url("./reset.css");     /*나중에 선언된 것을 사용한다. (앞에서 line-height를 1로 만든 후 뒤에서 다시 1.5로 만들면 최종적으로 1.5를 사용한다.)*/
 /*숨김 콘텐츠*/
-.a11y-hidden{
+
+
+
+.a11y-hidden, legend{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -100,7 +104,7 @@ body{
 }
 
 .navigation{
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .menu{
@@ -111,13 +115,160 @@ body{
   box-shadow: 0 -2px 0px 0px black;
   /* border-top: 2px solid black; */
   border-radius: 0 0 5px 5px;
+  padding-left: 231px;
 }
 
+.menu-item{
+  float: left;
+  border-left: 2px solid rgba(255, 255, 255, 0.85);
+  line-height: 47px;
+  padding: 0 17px;
+  position: relative;
+
+}
+.menu-item:focus, .sub-menu a:focus{
+  outline: 0;
+}
+
+.menu-item-text{
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-shadow: 2px 0 0px #000, -2px 0 0px #000, 0 -2px 0px #000, 0 2px 0px #000;
+}
+
+.menu-act .menu-item-text{
+  color: #ffff00;
+  display: block;
+  border-bottom: 2px solid black;
+}
+
+
+.sub-menu{
+  position: absolute;
+  display: none;
+  top: 48px;
+  white-space: nowrap;
+  line-height: 1em;
+  padding: 10px 0;
+}
+.sub-menu1, .sub-menu2, .sub-menu3{
+  left: 0;
+}
+
+.sub-menu4, .sub-menu5, .sub-menu6{
+  right: 0;
+}
+
+.menu-act .sub-menu{
+  display: block;
+}
+
+.sub-menu li, .sub-menu a{
+  display: inline-block;
+}
+
+.sub-menu a::before{
+  font-family: "fontello";
+  content: '\f192';
+  font-style: normal;
+  font-weight: normal;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+}
+
+.sub-menu a:focus::before,
+.sub-menu a:hover::before{
+  content: '\e801';
+}
+
+.sub-menu li{
+  margin-right: 1em;
+}
+
+@keyframes textAni{
+  0%{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0);
+    transform: translate(0, 0);
+  }
+  100%{
+    font-size: 24px;
+    color: rgba(0, 0, 0, 1);
+    transform: translate(400px, 75px);
+  }
+}
 .visual{
   height: 120px;
+  position: relative;
 }
+@keyframes bgAni{
+  0%{
+    opacity: 1; 
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  animation: bgAni 8000ms infinite alternate;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: bgAni;
+  animation-duration: 3000ms;
+}
+.visual::before{
+  background-image: url("./images/ani_flower_01.png"), url("./images/ani_flower_02.png");
+  background-position: 0 -10px, 670px 0;
+  animation-delay: 0ms;
+}
+.visual::after{
+  background-image: url("./images/ani_flower_03.png"), url("./images/ani_flower_04.png");
+  background-position: 300px 0px, 800px 15px;
+  animation-delay: 4000ms;
+}
+
+.visual-text{
+  position: absolute;
+  color: rgba(0, 0, 0, 0);
+  animation-name: textAni;
+  animation-duration: 700ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .main{
-  background: orangered;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
   min-height: 400px;
   /* height: 60vh; */
   /* display: flex;
@@ -131,18 +282,72 @@ body{
 }
 
 .group1{
-  background: pink;
   width: 250px;
 }
 .group2{
-  background: skyblue;
   /* clear: both; */
   width: 380px;
   /* order:-1; */
 }
 .group3{
-  background: lime;
   width: 190px;
+}
+.login{
+  background:radial-gradient(circle at right top, red, green);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 0 #ccc;
+}
+.login-heading{
+  font-weight: 700;
+  color: #ff0;
+  padding: 0 0 10px 10px;
+}
+.login-form label{
+  display: inline-block;
+  line-height: 25px;
+  width: 4em;
+}
+.login-form input{
+  width: 92px;
+  height: 20px; 
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+}
+.login-form, .sign{
+  background-color: #fff;
+  padding-top: 10px;
+}
+.sign li::before{
+  color: orange;
+  margin-right: 0;
+  margin-left: 0;
+}
+.login-form fieldset{
+  border-bottom: 1px solid #222;
+  position: relative;
+  padding: 3px;
+}
+.login-form{
+  padding: 10px 10px 0px 10px; 
+}
+.btn-login{
+  width: 50px;
+  height: 50px;
+  font-size: 12px;
+  color: white;
+  background-color: orangered;
+  border: 2px solid lightsalmon;
+  border-radius: 5px;
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+.sign{
+  display: flex;
+  letter-spacing: -2px;
+  justify-content: space-between; 
+  padding: 10px;
 }
 .slogan{
   background: purple;

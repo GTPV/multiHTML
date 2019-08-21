@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>웹카페 - HTML5, CSS3</title>
     <link rel="stylesheet" href="./css/webcafe.css" />
+    <script src="js/jquery.min.js" defer></script>
+    <script src="./js/webcafe.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -23,7 +25,7 @@
         <nav class="navigation">
           <h2 class="a11y-hidden">메인 메뉴</h2>
           <ul class="menu">
-            <li class="menu-item menu-act" >
+            <li class="menu-item" >
               <span class="menu-item-text">HTML에 대해</span>
               <ul class="sub-menu sub-menu1">
                 <li><a href="#">HTML5 소개</a></li>
@@ -96,11 +98,42 @@
       </header>
       <!--header.header-->
 
-      <div class="visual">비주얼</div>
+      <div class="visual">
+        <p class="visual-text">
+          Web Standards &amp; Accessibility
+        </p>
+      </div>
       <!--div.visual{비주얼} :안에 텍스트까지 넣어줌-->
+      
 
       <main class="main clearfix">
-        <div class="group group1">그룹1</div>
+        <div class="group group1">
+          <section class="login">
+            <h2 class="login-heading">로그인</h2>
+            <form action="https://formspree.io/haenim29@naver.com" method="POST" class="login-form">
+              <fieldset>
+                <legend>회원 로그인 폼</legend>
+                <div class="user-email">
+                  <label for="user-email">아이디</label>
+                  <input type="email" name='ID' id="user-email" required placeholder='이메일 주소'>
+                </div>
+                <div class="user-pw">
+                  <label for="user-pw">비밀번호</label>
+                  <input type="password" name='PWD'  id="user-pw" required placeholder='8자리 이상'>
+                </div>
+                <button class="btn-login" type="submit">로그인</button>
+              </fieldset>
+            </form>
+            <ul class="sign">
+              <li class="signup icon-right-open">
+                <a href="#" class="">회원가입</a>
+              </li>
+              <li class="find icon-right-open">
+                <a href="#" >아이디/비밀번호 찾기</a>
+              </li>
+            </ul>
+          </section>
+        </div>
         <!--클래스 이름 쓸 때 공백 넣어주면 두 이름으로 모두 레퍼런싱이 가능하다. 즉 group으로 부르면 세개가 다 참조됨, group2로 부르면 2번째만 참조됨.-->
 
         <div class="group group2">그룹2</div>
